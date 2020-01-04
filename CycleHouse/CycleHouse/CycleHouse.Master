@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CycleHouse.master.cs" Inherits="CycleHouse.CycleHouse" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title><%=Page.Title %></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="container">
+            <h1 class="text-center">Cycle House</h1>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Cycle House</a>
+                </div>
+
+               <div class="navbar-collapse collapse">
+                   <ul class="navbar-nav nav">
+                       <li><a class="nav-link" href="/Home.aspx">Home</a></li>
+                       <li><a class="nav-link" href="/Product/Product.aspx">Product</a></li>
+                       <li><a class="nav-link" href="/Report.aspx">Report</a></li>
+                   </ul>
+               </div>
+
+                <div class="navbar navbar-right">
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <AnonymousTemplate>
+                            <ul class="navbar-nav">
+                                <li><a class="nav-link" href="/Account/SignIn.aspx">Sign In</a></li>
+                                <li><a class="nav-link" href="/Account/SignUp.aspx">Sign Up</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+
+                        <LoggedInTemplate>
+                            <asp:LinkButton ID="SignOut" runat="server" CausesValidation="false" OnClick="SignOut_Click">Sign Out</asp:LinkButton>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </nav>
+
+        <div>
+            <asp:ContentPlaceHolder ID="mainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="Scripts/bootstrap.js"></script>
+</body>
+</html>
